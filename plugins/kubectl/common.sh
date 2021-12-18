@@ -73,7 +73,7 @@ fi
   alias kdis="kubectl describe Issuers"
   alias kdna="kubectl describe namespaces"
   alias kdno="kubectl describe nodes"
-  alias kdpo="kubectl describe pods"
+  alias kdp="kubectl describe pods"
   alias kdpv="kubectl describe persistentvolumes"
   alias kdpvc="kubectl describe persistentvolumeclaims"
   alias kdsec="kubectl describe secrets"
