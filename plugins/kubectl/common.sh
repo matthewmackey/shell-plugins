@@ -20,70 +20,160 @@ fi
 #-------------------------------------------------------------------------------
 # [aliases]] {{{
 #-------------------------------------------------------------------------------
-  alias kgctx="kubectl config get-contexts"
-  alias krctx="kubectl config rename-context"
+  # General
+  alias k="kubectl"
+  alias kd="kubectl describe"
+  alias kdel="kubectl delete"
+  alias kg="kubectl get"
+  alias kgw="kubectl get -o wide"
+  alias kgwa="kubectl get -o wide -A"
 
+  alias kaf="kubectl apply -f"
+  alias kdelf="kubectl delete -f"
+
+  alias keti="kubectl exec -ti"
+
+  # All
   alias kga="kubectl get all"
   alias kgaa="kubectl get all -A"
-  alias kd="kubectl describe"
+  alias kgaw="kubectl get all -o wide"
+  alias kgawa="kubectl get all -o wide -A"
 
+  # Config
+  alias kccc="kubectl config current-context"
+  alias kcdc="kubectl config delete-context"
+  alias kcgc="kubectl config get-contexts"
+  alias kcrc="kubectl config rename-context"
+  alias kcsc="kubectl config set-context"
+  alias kcuc="kubectl config use-context"
 
-  alias kgcm="kubectl get configmaps"
-  alias kgd="kubectl get deployments"
-  alias kge="kubectl get endpoints"
-  alias kgin="kubectl get ingress"
-  alias kgis="kubectl get Issuers"
-  alias kgna="kubectl get namespaces"
-  alias kgno="kubectl get nodes"
-  alias kgp="kubectl get pods"
-  alias kgpv="kubectl get persistentvolumes"
-  alias kgpvc="kubectl get persistentvolumeclaims"
-  alias kgsec="kubectl get secrets"
-  alias kgs="kubectl get services"
-  alias kgstc="kubectl get storageclasses"
+# List all contexts
+alias kcgc='kubectl config get-contexts'
 
-  alias kgdw="kubectl get deployments -o wide"
-  alias kgpw="kubectl get pods -o wide"
-  alias kgnow="kubectl get nodes -o wide"
-  alias kgsw="kubectl get services -o wide"
-
-  alias kcma="kubectl get -A configmaps"
-  alias kda="kubectl get -A deployments"
-  alias kea="kubectl get -A endpoints"
-  alias kina="kubectl get -A ingress"
-  alias kisa="kubectl get -A Issuers"
-  alias knaa="kubectl get -A namespaces"
-  alias knoa="kubectl get -A nodes"
-  alias kpoa="kubectl get -A pods"
-  alias kpva="kubectl get -A persistentvolumes"
-  alias kpvca="kubectl get -A persistentvolumeclaims"
-  alias kseca="kubectl get -A secrets"
-  alias ksa="kubectl get -A services"
-  alias kstca="kubectl get -A storageclasses"
-
-  alias kgdwa="kubectl get -A deployments"
-  alias kgnowa="kubectl get -A nodes"
-  alias kgpowa="kubectl get -A pods"
-  alias kgswa="kubectl get -A services"
-
+  # ConfigMaps
   alias kdcm="kubectl describe configmaps"
+  alias kdelcm="kubectl delete configmaps"
+  alias kecm="kubectl edit configmaps"
+  alias kgcm="kubectl get configmaps"
+  alias kgcma="kubectl get configmaps -A"
+
+  # Daemon Sets
+  alias kdds="kubectl describe daemonset"
+  alias kdelds="kubectl delete daemonset"
+  alias keds="kubectl edit daemonset"
+  alias kgds="kubectl get daemonset"
+  alias kgdsa="kubectl get daemonset -A"
+  alias kgdsw="kubectl get daemonset -o wide"
+  alias kgdswa="kubectl get daemonset -o wide -A"
+  alias kgdswatch="kubectl get daemonset --watch"
+
+  # Deployments
   alias kdd="kubectl describe deployments"
+  alias ked="kubectl edit deployments"
+  alias kgd="kubectl get deployments -o wide"
+  alias kgda="kubectl get deployments -A"
+  alias kgdw="kubectl get deployments -o wide"
+  alias kgdwa="kubectl get deployments -o wide -A"
+
+  # Endpoints
   alias kde="kubectl describe endpoints"
+  alias kge="kubectl get endpoints"
+  alias kgea="kubectl get endpoints -A"
+
+  # Ingress
   alias kdin="kubectl describe ingress"
+  alias kein="kubectl edit ingress"
+  alias kgin="kubectl get ingress"
+  alias kgina="kubectl get ingress -A"
+
+  # Issuers
   alias kdis="kubectl describe Issuers"
+  alias kgis="kubectl get Issuers"
+  alias kgisa="kubectl get Issuers -A"
+
+  # Logs
+  alias kl="kubectl logs"
+  alias kl1h="kubectl logs --since 1h"
+  alias kl1m="kubectl logs --since 1m"
+  alias kl1s="kubectl logs --since 1s"
+  alias klf="kubectl logs -f"
+  alias klf1h="kubectl logs --since 1h -f"
+  alias klf1m="kubectl logs --since 1m -f"
+  alias klf1s="kubectl logs --since 1s -f"
+
+  # Namespaces
   alias kdna="kubectl describe namespaces"
+  alias kdelna="kubectl delete namespaces"
+  alias kena="kubectl edit namespaces"
+  alias kgna="kubectl get namespaces"
+  alias kgnaa="kubectl get namespaces -A"
+
+  # Nodes
   alias kdno="kubectl describe nodes"
+  alias kgno="kubectl get nodes"
+  alias kgnoa="kubectl get nodes -A"
+  alias kgnow="kubectl get nodes -o wide"
+  alias kgnowa="kubectl get -A nodes -o wide -A"
+
+  # Pods
   alias kdp="kubectl describe pods"
+  alias kdelp="kubectl delete pods"
+  alias kep="kubectl edit pods"
+  alias kgp="kubectl get pods"
+  alias kgpa="kubectl get pods -A"
+  alias kgpw="kubectl get pods -o wide"
+  alias kgpwa="kubectl get pods -o wide"
+  alias kgpwatch="kubectl get pods --watch"
+  alias kgps="kubectl get pods --selector"
+
+  # PersistentVolumes
   alias kdpv="kubectl describe persistentvolumes"
+  alias kdelpv="kubectl delete persistentvolumes"
+  alias kgpv="kubectl get persistentvolumes"
+  alias kgpva="kubectl get persistentvolumes -A"
+
+  # PersistentVolumeClaims
   alias kdpvc="kubectl describe persistentvolumeclaims"
-  alias kdsec="kubectl describe secrets"
+  alias kdelpvc="kubectl delete persistentvolumeclaims"
+  alias kgpvc="kubectl get persistentvolumeclaims"
+  alias kgpvca="kubectl get persistentvolumeclaims -A"
+
+  # Services
   alias kds="kubectl describe services"
-  alias kdstc="kubectl describe storageclasses"
+  alias kdels="kubectl delete services"
+  alias kes="kubectl edit services"
+  alias kgs="kubectl get services"
+  alias kgsa="kubectl get services -A"
+  alias kgsw="kubectl get services -o wide"
+  alias kgswa="kubectl get services -o wide -A"
 
+  # Secrets
+  alias kdsec="kubectl describe secrets"
+  alias kdelsec="kubectl delete secrets"
+  alias kesec="kubectl edit secrets"
+  alias kgsec="kubectl get secrets"
+  alias kgseca="kubectl get secrets -A"
+
+  # Stateful Sets
+  alias kdss="kubectl describe statefulset"
+  alias kdelss="kubectl delete statefulset"
+  alias kess="kubectl edit statefulset"
+  alias kgss="kubectl get statefulset"
+  alias kgssa="kubectl get statefulset -A"
+  alias kgssw="kubectl get statefulset -o wide"
+  alias kgsswa="kubectl get statefulset -o wide -A"
+  alias kgsswatch="kubectl get statefulset --watch"
+
+  # StorageClasses
+  alias kdsc="kubectl describe storageclasses"
+  alias kgsc="kubectl get storageclasses"
+  alias kgsca="kubectl get storageclasses -A"
+
+  #-----------------------
+  # Random
+  #-----------------------
   alias certs="kubectl get Issuers,ClusterIssuers,Certificates,CertificateRequests,Orders,Challenges"
-
   alias contexts="kubectl config get-contexts | tail -n +2 | awk '{print \$2}'"
-  alias logs="kubectl logs"
   alias podcidr="kubectl get nodes -o jsonpath='{.items[*].spec.podCIDR}'"
 
   #-----------------------
