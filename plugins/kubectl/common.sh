@@ -41,14 +41,16 @@ fi
 
   # Config
   alias kccc="kubectl config current-context"
-  alias kcdc="kubectl config delete-context"
-  alias kcgc="kubectl config get-contexts"
-  alias kcrc="kubectl config rename-context"
-  alias kcsc="kubectl config set-context"
-  alias kcuc="kubectl config use-context"
-
-# List all contexts
-alias kcgc='kubectl config get-contexts'
+  alias kcdcluster="kubectl config delete-cluster"
+  alias kcdcontext="kubectl config delete-context"
+  alias kcduser="kubectl config delete-user"
+  alias kcgclusters="kubectl config get-clusters"
+  alias kcgcontexts="kubectl config get-contexts"
+  alias kcgusers="kubectl config get-users"
+  alias kcrcontext="kubectl config rename-context"
+  alias kcscontext="kubectl config set-context"
+  alias kcuccontext="kubectl config use-context"
+  alias kcview="kubectl config view"
 
   # ConfigMaps
   alias kdcm="kubectl describe configmaps"
@@ -121,10 +123,11 @@ alias kcgc='kubectl config get-contexts'
   alias kep="kubectl edit pods"
   alias kgp="kubectl get pods"
   alias kgpa="kubectl get pods -A"
+  alias kgps="kubectl get pods --selector"
+  alias kgpsl="kubectl get pods --show-labels"
   alias kgpw="kubectl get pods -o wide"
   alias kgpwa="kubectl get pods -o wide"
   alias kgpwatch="kubectl get pods --watch"
-  alias kgps="kubectl get pods --selector"
 
   # PersistentVolumes
   alias kdpv="kubectl describe persistentvolumes"
