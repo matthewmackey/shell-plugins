@@ -150,7 +150,6 @@ then
   dla()   { __docker_ps_all logs $@ ; }
   dlaf()  { __docker_ps_all logs -f $@ ; }
   dprt()  { __docker_ps port $@ ; }
-  deti()  { __docker_ps exec -it $@ ; }
   drn()   { __docker_ps rename $@ ; }
   dtop()  { __docker_ps top $@ ; }
 
@@ -175,6 +174,14 @@ then
   # Images: multi-selection
   dsa()   { __docker_images_multi save $@ ; }
   drmi()  { __docker_images_multi rmi $@ ; }
+
+  # docker exec (uses post-arguments)
+  deti()  {
+    local _cid
+    _cid=$(docker ps | sed 1d | fzf | awk '{print $1}')
+    docker exec -it ${_cid} $@
+  }
+
 fi
 
 # }}} docker:functions
