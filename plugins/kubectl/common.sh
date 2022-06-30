@@ -43,6 +43,8 @@ ekubeconfig() {
   fi
 }
 
+alias kconf='test -n "$KUBECONFIG" && vim "$KUBECONFIG" || vim ~/.kube/config'
+
 # }}}
 
 
@@ -97,7 +99,7 @@ fi
     alias kg${_abbrev}wal="kubectl get $_resource -o wide -A --show-labels"
 
     # kg_watch
-    alias kg${_abbrev}watch="kubectl get $_resource --watch"
+    alias kg${_abbrev}wat="kubectl get $_resource --watch"
 
     # kd_
     alias kd${_abbrev}="kubectl describe $_resource"
@@ -181,23 +183,49 @@ fi
 
   # Logs
   alias kl="kubectl logs"
+
   alias kl1h="kubectl logs --since 1h"
   alias kl1m="kubectl logs --since 1m"
   alias kl1s="kubectl logs --since 1s"
+
   alias klf="kubectl logs -f"
+  alias klfj="kubectl logs -f --tail=1"
+  alias klfn="kubectl logs -f --tail="
   alias klft="kubectl logs -f --tail=-1"
+
   alias klf1h="kubectl logs --since 1h -f"
   alias klf1m="kubectl logs --since 1m -f"
   alias klf1s="kubectl logs --since 1s -f"
 
-  alias klin="kubectl logs -l app.kubernetes.io/component=controller,app.kubernetes.io/instance=ingress-nginx,app.kubernetes.io/name=ingress-nginx"
+  alias klin="kubectl logs -n ingress-nginx -l app.kubernetes.io/component=controller,app.kubernetes.io/instance=ingress-nginx,app.kubernetes.io/name=ingress-nginx"
   alias klinf="klin -f"
   alias klinft="klin -f --tail=-1"
 
+
+  # Replica Set
+  alias kgrs="kubectl get replicaset"
+
+
   # Rollout
+  alias kr="kubectl rollout"
+
+  alias krh="kubectl rollout history"
+  alias krhd="kubectl rollout history deployment"
+  alias krhds="kubectl rollout history daemonset"
+  alias krhss="kubectl rollout history statefulset"
+  alias krhdrev="kubectl rollout history deployment --revision="
+  alias krhdsrev="kubectl rollout history daemonset --revision="
+  alias krhssrev="kubectl rollout history statefulset --revision="
+
   alias krr="kubectl rollout restart"
+  alias krrd="kubectl rollout restart deployment"
   alias krrds="kubectl rollout restart daemonset"
-  alias krrd="kubectl rollout restart deployments"
+  alias krrss="kubectl rollout restart statefulset"
+
+  alias krs="kubectl rollout status"
+  alias krsd="kubectl rollout status deployment"
+  alias krsds="kubectl rollout status daemonset"
+  alias krsss="kubectl rollout status statefulset"
 
 
   # Standard
