@@ -164,6 +164,13 @@ fi
   alias kgaawx="kubectl get all,$_EXTRA_RESOURCES -A -o wide"
   unset _EXTRA_RESOURCES
 
+  # Annotate
+  alias kan="kubectl annotate"
+  alias kand="kubectl annotate deployment"
+  alias kanp="kubectl annotate pod"
+  alias kans="kubectl annotate service"
+  alias kanss="kubectl annotate statefulset"
+
   # Config
   alias kccc="kubectl config current-context"
   alias kcdcluster="kubectl config delete-cluster"
@@ -285,6 +292,16 @@ fi
   #-----------------------
   alias kctx="kubectx"
   alias kns="kubens"
+
+
+  #-----------------------
+  # kustomize
+  #-----------------------
+  alias ku="kustomize"
+  alias kub="kustomize build"
+  alias kub.="kustomize build ."
+  alias kuba="kustomize build --enable-alpha-plugins"
+  alias kuba.="kustomize build --enable-alpha-plugins ."
 
 # }}}
 
